@@ -65,15 +65,11 @@ void Stack::reset() {
 	stack_count = 0;
 };
 void Stack::print() {
-	if (stack_count == 0) {
-		printf("()\n");
-	} else {
-		printf("( ");
-		for (int i = 0; i < stack_count; i++) {
-			printf("%d ", stack_array[i]);
-		}
-		printf(")\n");
+	printf("( ");
+	for (int i = 0; i < stack_count; i++) {
+		printf("%d ", stack_array[i]);
 	}
+	printf(")\n");
 };
 bool Stack::push(int value) {
 	if (stack_count == 10) {
@@ -87,7 +83,11 @@ bool Stack::push(int value) {
 	}
 };
 int Stack::pop() {
-	return stack_array[--stack_count];
+	if (stack_count == 0) {
+		return 0;
+	} else {
+		return stack_array[--stack_count];
+	}
 };
  
 int main() {
