@@ -62,7 +62,7 @@ public:
     ~Card() {};
     Suit get_suit();
     Value get_value();
-    bool get_back();
+    std::string get_back() const;
     void flip();
     friend std::ostream& operator<< (std::ostream &c, Card &card);
 };
@@ -70,17 +70,15 @@ public:
 void Card::flip() {
     is_back = !is_back;
 }
-bool Card::get_back() { return is_back; };
+std::string Card::get_back() const { 
+    if (is_back == 0) {
+        return "FALSE";
+    } else {
+        return "TRUE";
+    }
+};
 Value Card::get_value() { return value; };
 Suit Card::get_suit() { return suit; };
-std::ostream& operator<< (std::ostream &c, bool *b) {
-    if (*b > 0) {
-        c << "TRUE";
-    } else {
-        c << "FALSE";
-    }
-    return c;
-}
 std::ostream &operator<< (std::ostream &c, Card &card) { 
     c << value_to_string(card.get_value()) << " " << suit_to_string(card.get_suit()) << " " << card.get_back();
     return c;
