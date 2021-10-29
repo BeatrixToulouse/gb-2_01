@@ -91,6 +91,8 @@ int main() {
 
     Card c(Suit::club, Value::king, 0);
     cout << c << endl;
+    c.flip();
+    cout << c << endl;
 
     return 0;
 }
