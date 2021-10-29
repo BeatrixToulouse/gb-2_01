@@ -64,7 +64,7 @@ public:
     Value get_value();
     bool get_back();
     void flip();
-    friend std::ostream& operator<< (std::ostream &c, Card card);
+    friend std::ostream& operator<< (std::ostream &c, Card &card);
 };
 
 void Card::flip() {
@@ -81,7 +81,7 @@ std::ostream& operator<< (std::ostream &c, bool *b) {
     }
     return c;
 }
-std::ostream &operator<< (std::ostream &c, Card card) { 
+std::ostream &operator<< (std::ostream &c, Card &card) { 
     c << value_to_string(card.get_value()) << " " << suit_to_string(card.get_suit()) << " " << card.get_back();
     return c;
 }
