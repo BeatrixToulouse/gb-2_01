@@ -67,7 +67,7 @@ std::ostream &operator<< (std::ostream &c, Card &card) {
 int main() {
     using namespace std;
 
-    Card c(Suit::club, Value::aceG, 0);
+    Card c(Suit::heart, Value::aceG, 0);
     cout << c << endl;
     c.flip();
     cout << c << endl;
